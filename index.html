@@ -1,0 +1,874 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .navbar{
+            box-shadow: 0px 1px 30px rgb(206, 200, 200);
+        }
+
+       
+        .icon-bar{
+            background-color: black;
+        }
+        .navbrand img {
+            width: 30%;
+            margin-top: 3px;
+        
+        }
+
+        .cnav{
+            margin-top: 2%;
+        }
+        .cnav a{
+            font-size: 110%;
+        }
+
+        .path {
+            margin: 30px 20px;
+        }
+
+        .path a {
+            text-decoration: none;
+            color: rgb(194, 192, 192);
+        }
+
+        .path a:hover {
+            color: orangered;
+        }
+
+        .filter {
+            width: 100%;
+            height: 68px;
+            display: flex;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            background-color: white;
+
+        }
+
+        .count {
+            font-size: xx-large;
+            font-weight: bolder;
+            padding-top: 1%;
+            margin-left: 3%;
+        }
+
+        .filteroptn {
+            margin-left: 10%;
+            width: 70%;
+            padding-top: 2%;
+        }
+
+        .filteroptn span {
+            margin-left: 6%;
+            font-size: 16px;
+            color: rgb(95, 89, 89);
+            cursor: pointer;
+            padding-bottom: 5px;
+        }
+
+        .filteroptn span:hover {
+            border-bottom: 1px solid black;
+        }
+
+        .filteroptn p {
+            margin-left: 4%;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            display: inline;
+            cursor: pointer;
+        }
+
+        .filteroptn a:hover {
+            color: orangered;
+        }
+
+        #hide {
+            position: absolute;
+            height: 100%;
+            width: 40%;
+            background-color: white;
+            z-index: 99;
+            margin-left: 59%;
+            margin-top: -18%;
+            overflow: auto;
+            display: none;
+
+        }
+
+        .hidehead {
+            display: flex;
+            justify-content: space-around;
+            height: 80px;
+
+            position: sticky;
+            top: 0;
+            background-color: white;
+        }
+
+        .hidehead span {
+            margin-left: -21%;
+            margin-top: 4%;
+            font-size: x-large;
+        }
+
+        .hidehead i {
+            margin-right: -25%;
+            margin-top: 4%;
+            font-size: x-large;
+
+        }
+
+        .checkbox input {
+            width: 18px;
+            vertical-align: middle;
+        }
+
+        .side {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .side label {
+            font-size: large;
+        }
+
+        .cusines {
+            margin: 10%;
+            font-size: x-large;
+        }
+
+        .hidebtn {
+            display: flex;
+            justify-content: space-around;
+            padding: 5% 5%;
+            position: sticky;
+            bottom: 0;
+            background-color: white;
+            box-shadow: 0px 1px 30px rgb(206, 200, 200);
+        }
+
+        .hidebtn button {
+            padding: 12px 19px;
+            font-size: 16px;
+            text-transform: uppercase;
+        }
+
+        .list {
+            width: 92%;
+            display: inline-block;
+            margin-left: 3%;
+        }
+
+        .resturants {
+            width: 23%;
+            height: 400px;
+            margin: 1%;
+            float: left;
+            margin-bottom: 5%;
+            padding: 1%;
+            cursor: pointer;
+        }
+
+        .resturants:hover {
+            border: 1px solid rgb(197, 192, 192);
+            box-shadow: 2px 2px 30px rgb(197, 192, 192);
+        }
+
+        .list img {
+            width: 100%;
+            height: 180px;
+        }
+
+        .rating img {
+            width: 20px;
+        }
+
+        .mnane {
+            font-weight: bolder;
+            font-size: large;
+            margin: 5% 3% 1% 3%;
+        }
+
+        .item {
+            margin-left: 3%;
+            color: grey;
+            font-size: smaller;
+            margin-bottom: 4%;
+        }
+
+        .resturants span:not([class="rating"]) {
+            margin-left: 10%;
+            font-size: smaller;
+        }
+
+        .rating {
+            margin-left: 3%;
+            font-size: smaller;
+            background-color: #48c479;
+            color: white;
+            padding: 2px 3px 2px 3px;
+        }
+
+        .offers {
+            margin-top: 4%;
+            border-top: 1px solid #8a584b;
+            padding: 4% 0% 4% 3%;
+            border-bottom: 1px solid #8a584b;
+        }
+
+        .offers img {
+            height: 16px;
+            width: 16px;
+            position: absolute;
+        }
+
+        .offers span {
+            color: #8a584b;
+        }
+
+        #quick {
+            display: none;
+        }
+
+        @media (max-width:1136px) {
+            .resturants {
+                width: 31%;
+
+            }
+        }
+
+        @media (max-width:868px) {
+            .resturants {
+                width: 46%;
+            }
+        }
+
+        @media (max-width:600px) {
+            .resturants {
+                width: 100%;
+                height: 200px;
+                border-radius: 20px;
+                box-shadow: 2px 2px 10px rgb(197, 192, 192);
+            }
+            .resturants>img{
+    float: left;
+    width:40%;
+    height: 120px;
+    border-radius: 20px;
+}
+.mnane {
+    margin: 5% 3% 1% 45%;
+}
+
+.item {
+    margin-left: 45%
+}
+.rating {
+    margin-left: 5%;
+    
+}
+.resturants span:not([class="rating"]) {
+    margin-left: 5%;
+
+}
+.offers {
+
+    padding: 2% 0% 2% 3%;
+
+}
+.filter {
+            width: 100%;
+            height: 68px;
+            display: flex;
+            flex-direction: column;
+            position: static;
+            margin-bottom: 10%;
+            
+        
+
+        }
+        .filteroptn {
+            margin-left: 0%;
+            width: 100%;
+        
+        }
+        .filteroptn span {
+            margin-left: 3%;
+            font-size: 12px;
+            color: rgb(95, 89, 89);
+            cursor: pointer;
+            padding-bottom: 5px;
+        }
+        .filteroptn p {
+            margin-left: 4%;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 15px;
+            display: block;
+            cursor: pointer;
+            margin-top: 2%;
+        }
+        .count {
+            font-size: 20px;
+            font-weight: bolder;
+            padding-top: 1%;
+            margin-left: 3%;
+        }
+        .navbrand img {
+            width: 19%;
+            margin-top: 3px;
+            margin-left: 30px;
+        }
+        nav {
+            width: 100%;
+            height: 75px;
+            box-shadow: 0px 1px 30px rgb(206, 200, 200);
+            display: flex;
+            flex-direction: row;
+
+        }
+        #search input{
+            display: none;
+        }
+        #search {
+            width: auto;
+            border: 1px solid rgb(212, 201, 201);
+
+            margin-top: 28px;
+            margin-left: 210px;
+
+            position: absolute;
+        }
+        .nav-link {
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+
+        }
+
+        .nav-link img {
+            width: 22px;
+            margin-left: -32px;
+        }
+        .nav-navbar {
+    width: 72%;
+    padding-top: 33px;
+    padding-left: 10%;
+    margin-left: 37%;
+}
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar ">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                              <span class="icon-bar"></span>
+                              <span class="icon-bar"></span>
+                              <span class="icon-bar"></span>
+                          </button>
+            <a class="navbrand"><img src="https://i.ibb.co/NFFqXHT/logo2.png" alt="logo2"
+                border="0"></a>
+          </div>
+          <div class="navbar-collapse collapse cnav">
+            <ul class="nav navbar-nav">
+              <li><a href="~/">Home</a></li>
+              <li><a href="~/img">Pictures</a></li>
+              <li><a href="~/whatsup">Tonight's Sky</a></li>
+              <li><a href="~/About">About</a></li>
+              <li><a href="~/Contact">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    <div class="path">
+        <a href="">Home</a>
+        <span>/</span>
+        <a href="">India</a>
+        <span>/</span>
+        <a href="">Delhi NCR</a>
+        <span>/</span>
+        <a href="">Greater noida</a>
+        <span>/</span>
+        <a href="">AlphaI</a>
+        <span>/</span>
+    </div>
+    <div id="filters" class="filter">
+        <span class="count">132 resturants</span>
+        <div class="filteroptn">
+            <span>Relevance</span>
+            <span>Delivery Time</span>
+            <span>Cost: low to high</span>
+            <span>Cost: high to low</span>
+            <span>Ratings</span>
+            <p onclick="filteropen()">Filters<i class="fa-solid fa-filter" style="color:orangered ;"></i></p>
+
+        </div>
+
+    </div>
+    <div id="hide">
+        <div class="hidehead">
+            <span>Filters</span>
+            <i onclick="filterclose()" class="fa-solid fa-xmark"></i>
+        </div>
+        <p class="cusines">Cusines</p>
+        <div class="side">
+            <div class="side1">
+                <div class="checkbox">
+                    <input type="checkbox" name="afgani">
+                    <label for="afgani">afgani</label>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" name="afgani">
+                    <label for="afgani">afgani</label>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" name="afgani">
+                    <label for="afgani">afgani</label>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" name="afgani">
+                    <label for="afgani">afgani</label>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" name="afgani">
+                    <label for="afgani">afgani</label>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" name="afgani">
+                    <label for="afgani">afgani</label>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" name="afgani">
+                    <label for="afgani">afgani</label>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" name="afgani">
+                    <label for="afgani">afgani</label>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" name="afgani">
+                    <label for="afgani">afgani</label>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" name="afgani">
+                    <label for="afgani">afgani</label>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" name="afgani">
+                    <label for="afgani">afgani</label>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" name="afgani">
+                    <label for="afgani">afgani</label>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" name="afgani">
+                    <label for="afgani">afgani</label>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" name="afgani">
+                    <label for="afgani">afgani</label>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" name="afgani">
+                    <label for="afgani">afgani</label>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" name="afgani">
+                    <label for="afgani">afgani</label>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" name="afgani">
+                    <label for="afgani">afgani</label>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" name="afgani">
+                    <label for="afgani">afgani</label>
+                </div>
+            </div>
+
+            <div class="side2">
+                <div class="checkbox">
+                    <input type="checkbox" name="afgani">
+                    <label for="afgani">afgani</label>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" name="afgani">
+                    <label for="afgani">afgani</label>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" name="afgani">
+                    <label for="afgani">afgani</label>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" name="afgani">
+                    <label for="afgani">afgani</label>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" name="afgani">
+                    <label for="afgani">afgani</label>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" name="afgani">
+                    <label for="afgani">afgani</label>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" name="afgani">
+                    <label for="afgani">afgani</label>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" name="afgani">
+                    <label for="afgani">afgani</label>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" name="afgani">
+                    <label for="afgani">afgani</label>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" name="afgani">
+                    <label for="afgani">afgani</label>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" name="afgani">
+                    <label for="afgani">afgani</label>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" name="afgani">
+                    <label for="afgani">afgani</label>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" name="afgani">
+                    <label for="afgani">afgani</label>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" name="afgani">
+                    <label for="afgani">afgani</label>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" name="afgani">
+                    <label for="afgani">afgani</label>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" name="afgani">
+                    <label for="afgani">afgani</label>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" name="afgani">
+                    <label for="afgani">afgani</label>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" name="afgani">
+                    <label for="afgani">afgani</label>
+                </div>
+            </div>
+        </div>
+        <div class="hidebtn">
+            <button type="reset">Clear All</button>
+            <button style="color:white; background-color:orangered; border:none; margin-left: -18%;">Search
+                resturants</button>
+        </div>
+    </div>
+
+    <div class="list">
+        <div class="resturants">
+            <img src="images/pic1.jpg" alt="">
+            <p class="mnane">Insta Pizza</p>
+            <p class="item">Pizzas, Italian</p>
+            <span class="rating"><i class="fa-solid fa-star"></i>3.5</span>
+            <span>35mins</span>
+            <span><i class="fa-solid fa-indian-rupee-sign"></i>250 FOR TWO</span>
+            <div class="offers">
+                <img src="images/percentage.png" alt="">
+                <span>get every item @ 129</span>
+            </div>
+        </div>
+        <div class="resturants">
+            <img src="images/pic3.jpg" alt="">
+            <p class="mnane">Insta Pizza</p>
+            <p class="item">Pizzas, Italian</p>
+            <span class="rating"><i class="fa-solid fa-star"></i>3.5</span>
+            <span>35mins</span>
+            <span><i class="fa-solid fa-indian-rupee-sign"></i>250 FOR TWO</span>
+            <div class="offers">
+                <img src="images/percentage.png" alt="">
+                <span>get every item @ 129</span>
+            </div>
+        </div>
+        <div class="resturants">
+            <img src="images/pic4.jpg" alt="">
+            <p class="mnane">Insta Pizza</p>
+            <p class="item">Pizzas, Italian</p>
+            <span class="rating"><i class="fa-solid fa-star"></i>3.5</span>
+            <span>35mins</span>
+            <span><i class="fa-solid fa-indian-rupee-sign"></i>250 FOR TWO</span>
+            <div class="offers">
+                <img src="images/percentage.png" alt="">
+                <span>get every item @ 129</span>
+            </div>
+        </div>
+        <div class="resturants">
+            <img src="images/pic5.jpg" alt="">
+            <p class="mnane">Insta Pizza</p>
+            <p class="item">Pizzas, Italian</p>
+            <span class="rating"><i class="fa-solid fa-star"></i>3.5</span>
+            <span>35mins</span>
+            <span><i class="fa-solid fa-indian-rupee-sign"></i>250 FOR TWO</span>
+            <div class="offers">
+                <img src="images/percentage.png" alt="">
+                <span>get every item @ 129</span>
+            </div>
+        </div>
+        <div class="resturants">
+            <img src="images/pic6.jpg" alt="">
+            <p class="mnane">Insta Pizza</p>
+            <p class="item">Pizzas, Italian</p>
+            <span class="rating"><i class="fa-solid fa-star"></i>3.5</span>
+            <span>35mins</span>
+            <span><i class="fa-solid fa-indian-rupee-sign"></i>250 FOR TWO</span>
+            <div class="offers">
+                <img src="images/percentage.png" alt="">
+                <span>get every item @ 129</span>
+            </div>
+        </div>
+        <div class="resturants">
+            <img src="images/pic7.jpg" alt="">
+            <p class="mnane">Insta Pizza</p>
+            <p class="item">Pizzas, Italian</p>
+            <span class="rating"><i class="fa-solid fa-star"></i>3.5</span>
+            <span>35mins</span>
+            <span><i class="fa-solid fa-indian-rupee-sign"></i>250 FOR TWO</span>
+            <div class="offers">
+                <img src="images/percentage.png" alt="">
+                <span>get every item @ 129</span>
+            </div>
+        </div>
+        <div class="resturants">
+            <img src="images/pic8.jpg" alt="">
+            <p class="mnane">Insta Pizza</p>
+            <p class="item">Pizzas, Italian</p>
+            <span class="rating"><i class="fa-solid fa-star"></i>3.5</span>
+            <span>35mins</span>
+            <span><i class="fa-solid fa-indian-rupee-sign"></i>250 FOR TWO</span>
+            <div class="offers">
+                <img src="images/percentage.png" alt="">
+                <span>get every item @ 129</span>
+            </div>
+        </div>
+        <div class="resturants">
+            <img src="images/pic9.jpg" alt="">
+            <p class="mnane">Insta Pizza</p>
+            <p class="item">Pizzas, Italian</p>
+            <span class="rating"><i class="fa-solid fa-star"></i>3.5</span>
+            <span>35mins</span>
+            <span><i class="fa-solid fa-indian-rupee-sign"></i>250 FOR TWO</span>
+            <div class="offers">
+                <img src="images/percentage.png" alt="">
+                <span>get every item @ 129</span>
+            </div>
+        </div>
+        <div class="resturants">
+            <img src="images/pic10.jpg" alt="">
+            <p class="mnane">Insta Pizza</p>
+            <p class="item">Pizzas, Italian</p>
+            <span class="rating"><i class="fa-solid fa-star"></i>3.5</span>
+            <span>35mins</span>
+            <span><i class="fa-solid fa-indian-rupee-sign"></i>250 FOR TWO</span>
+            <div class="offers">
+                <img src="images/percentage.png" alt="">
+                <span>get every item @ 129</span>
+            </div>
+        </div>
+        <div class="resturants">
+            <img src="images/pic11.jpg" alt="">
+            <p class="mnane">Insta Pizza</p>
+            <p class="item">Pizzas, Italian</p>
+            <span class="rating"><i class="fa-solid fa-star"></i>3.5</span>
+            <span>35mins</span>
+            <span><i class="fa-solid fa-indian-rupee-sign"></i>250 FOR TWO</span>
+            <div class="offers">
+                <img src="images/percentage.png" alt="">
+                <span>get every item @ 129</span>
+            </div>
+        </div>
+        <div class="resturants">
+            <img src="images/pic12.jpg" alt="">
+            <p class="mnane">Insta Pizza</p>
+            <p class="item">Pizzas, Italian</p>
+            <span class="rating"><i class="fa-solid fa-star"></i>3.5</span>
+            <span>35mins</span>
+            <span><i class="fa-solid fa-indian-rupee-sign"></i>250 FOR TWO</span>
+            <div class="offers">
+                <img src="images/percentage.png" alt="">
+                <span>get every item @ 129</span>
+            </div>
+        </div>
+        <div class="resturants">
+            <img src="images/pic13.jpg" alt="">
+            <p class="mnane">Insta Pizza</p>
+            <p class="item">Pizzas, Italian</p>
+            <span class="rating"><i class="fa-solid fa-star"></i>3.5</span>
+            <span>35mins</span>
+            <span><i class="fa-solid fa-indian-rupee-sign"></i>250 FOR TWO</span>
+            <div class="offers">
+                <img src="images/percentage.png" alt="">
+                <span>get every item @ 129</span>
+            </div>
+        </div>
+        <div class="resturants">
+            <img src="images/pic14.jpg" alt="">
+            <p class="mnane">Insta Pizza</p>
+            <p class="item">Pizzas, Italian</p>
+            <span class="rating"><i class="fa-solid fa-star"></i>3.5</span>
+            <span>35mins</span>
+            <span><i class="fa-solid fa-indian-rupee-sign"></i>250 FOR TWO</span>
+            <div class="offers">
+                <img src="images/percentage.png" alt="">
+                <span>get every item @ 129</span>
+            </div>
+        </div>
+        <div class="resturants">
+            <img src="images/pic1.jpg" alt="">
+            <p class="mnane">Insta Pizza</p>
+            <p class="item">Pizzas, Italian</p>
+            <span class="rating"><i class="fa-solid fa-star"></i>3.5</span>
+            <span>35mins</span>
+            <span><i class="fa-solid fa-indian-rupee-sign"></i>250 FOR TWO</span>
+            <div class="offers">
+                <img src="images/percentage.png" alt="">
+                <span>get every item @ 129</span>
+            </div>
+        </div>
+        <div class="resturants">
+            <img src="images/pic15.jpg" alt="">
+            <p class="mnane">Insta Pizza</p>
+            <p class="item">Pizzas, Italian</p>
+            <span class="rating"><i class="fa-solid fa-star"></i>3.5</span>
+            <span>35mins</span>
+            <span><i class="fa-solid fa-indian-rupee-sign"></i>250 FOR TWO</span>
+            <div class="offers">
+                <img src="images/percentage.png" alt="">
+                <span>get every item @ 129</span>
+            </div>
+        </div>
+        <div class="resturants">
+            <img src="images/pic16.jpg" alt="">
+            <p class="mnane">Insta Pizza</p>
+            <p class="item">Pizzas, Italian</p>
+            <span class="rating"><i class="fa-solid fa-star"></i>3.5</span>
+            <span>35mins</span>
+            <span><i class="fa-solid fa-indian-rupee-sign"></i>250 FOR TWO</span>
+            <div class="offers">
+                <img src="images/percentage.png" alt="">
+                <span>get every item @ 129</span>
+            </div>
+        </div>
+        <div class="resturants">
+            <img src="images/pic16.jpg" alt="">
+            <p class="mnane">Insta Pizza</p>
+            <p class="item">Pizzas, Italian</p>
+            <span class="rating"><i class="fa-solid fa-star"></i>3.5</span>
+            <span>35mins</span>
+            <span><i class="fa-solid fa-indian-rupee-sign"></i>250 FOR TWO</span>
+            <div class="offers">
+                <img src="images/percentage.png" alt="">
+                <span>get every item @ 129</span>
+            </div>
+        </div>
+        <div class="resturants">
+            <img src="images/pic18.jpg" alt="">
+            <p class="mnane">Insta Pizza</p>
+            <p class="item">Pizzas, Italian</p>
+            <span class="rating"><i class="fa-solid fa-star"></i>3.5</span>
+            <span>35mins</span>
+            <span><i class="fa-solid fa-indian-rupee-sign"></i>250 FOR TWO</span>
+            <div class="offers">
+                <img src="images/percentage.png" alt="">
+                <span>get every item @ 129</span>
+            </div>
+        </div>
+        <div class="resturants">
+            <img src="images/pic19.jpg" alt="">
+            <p class="mnane">Insta Pizza</p>
+            <p class="item">Pizzas, Italian</p>
+            <span class="rating"><i class="fa-solid fa-star"></i>3.5</span>
+            <span>35mins</span>
+            <span><i class="fa-solid fa-indian-rupee-sign"></i>250 FOR TWO</span>
+            <div class="offers">
+                <img src="images/percentage.png" alt="">
+                <span>get every item @ 129</span>
+            </div>
+        </div>
+        <div class="resturants">
+            <img src="images/pic20.jpg" alt="">
+            <p class="mnane">Insta Pizza</p>
+            <p class="item">Pizzas, Italian</p>
+            <span class="rating"><i class="fa-solid fa-star"></i>3.5</span>
+            <span>35mins</span>
+            <span><i class="fa-solid fa-indian-rupee-sign"></i>250 FOR TWO</span>
+            <div class="offers">
+                <img src="images/percentage.png" alt="">
+                <span>get every item @ 129</span>
+            </div>
+        </div>
+        <div class="resturants">
+            <img src="images/pic21.jpg" alt="">
+            <p class="mnane">Insta Pizza</p>
+            <p class="item">Pizzas, Italian</p>
+            <span class="rating"><i class="fa-solid fa-star"></i>3.5</span>
+            <span>35mins</span>
+            <span><i class="fa-solid fa-indian-rupee-sign"></i>250 FOR TWO</span>
+            <div class="offers">
+                <img src="images/percentage.png" alt="">
+                <span>get every item @ 129</span>
+            </div>
+        </div>
+    </div>
+    <script>
+        var x = document.getElementById("hide");
+        function filteropen() {
+            if (x.style.display === "none" || x.style.display === "") {
+                x.style.display = "block";
+                document.body.style.backgroundColor = "whitesmoke";
+                document.body.style.overflow = "hidden";
+            }
+        }
+        function filterclose() {
+            if (x.style.display === "block" || x.style.display === "") {
+                x.style.display = "none";
+                document.body.style.backgroundColor = "";
+                document.body.style.overflow = "auto";
+            }
+        }
+        function quickview() {
+            y = document.getElementsById("quick");
+            if (y.style.display === "none" || y.style.display === "") {
+                y.style.display = "block";
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
